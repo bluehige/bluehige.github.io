@@ -188,6 +188,23 @@ a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visibl
 .to-top { display: grid; place-items: center; width: 44px; height: 44px; flex-shrink: 0; border: 1px solid #cddbeb; border-radius: 50%; background: #fff; color: #3f5f88; font-size: 22px; }
 .to-top:hover { color: var(--blue); border-color: var(--blue); }
 
+
+/* Contact */
+.contact-panel { scroll-margin-top: 110px; margin-top: 30px; padding: 26px; border: 1px solid #d8e6fa; border-radius: 18px; background: linear-gradient(140deg, #f8fbff, #eef5ff); }
+.contact-panel .eyebrow { margin-bottom: 7px; }
+.contact-panel h3 { font-size: 23px; font-weight: 800; letter-spacing: -.045em; margin: 0 0 6px; }
+.about-text .contact-panel > p:not(.eyebrow) { color: #4c6180; font-size: 14px; line-height: 1.7; margin: 0 0 18px; }
+.contact-links { display: grid; gap: 10px; }
+.contact-link { display: flex; align-items: center; flex-wrap: wrap; column-gap: 13px; row-gap: 3px; min-height: 54px; padding: 13px 15px; background: #fff; border: 1px solid #dbe5f3; border-radius: 11px; color: #183958; transition: border-color .2s, box-shadow .2s, transform .2s; }
+.contact-link:hover { border-color: #9cbcec; box-shadow: 0 5px 18px #2465b514; transform: translateY(-1px); }
+.contact-service { flex: 0 0 49px; color: #416d9f; font-size: 12px; font-weight: 800; letter-spacing: .01em; }
+.contact-link strong { font-size: 15px; font-weight: 700; overflow-wrap: anywhere; }
+.contact-arrow { color: var(--blue); font-size: 19px; line-height: 1; margin-left: auto; }
+.footer-contact { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
+.footer-contact span { color: #5b7798; font-size: 10px; font-weight: 800; letter-spacing: .13em; }
+.footer-contact a { color: #31547d; font-size: 12px; font-weight: 600; overflow-wrap: anywhere; }
+.footer-contact a:hover { color: var(--blue); text-decoration: underline; }
+
 /* Project details share the same scale and artwork. */
 .detail-main { padding-top: 20px; padding-bottom: 70px; }
 .back-row { font-size: 14px; color: #3f6089; margin: 0 0 12px; }
@@ -306,6 +323,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visibl
   .about-text p { font-size: 15px; }
   .about-text p:first-child { font-size: 17px; }
   .footer-inner { flex-wrap: wrap; gap: 20px; }
+  .footer-contact { order: 2; flex-basis: 100%; }
+  .contact-panel { padding: 22px; }
+  .contact-link { padding-inline: 13px; }
   .footer-note { order: 3; margin-left: 0; text-align: left; flex-basis: 100%; }
   .to-top { margin-left: auto; }
   .detail-main { padding-top: 10px; padding-bottom: 45px; }
@@ -338,7 +358,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visibl
   .brand small { font-size: 7.5px; letter-spacing: .12em; }
   .main-nav { gap: 1px; }
   .main-nav .nav-home { display: none; }
-  .main-nav a { font-size: 13px; padding-inline: 6px; }
+  .main-nav a { font-size: 12.5px; padding-inline: 4px; }
+  .contact-panel { padding: 18px; }
+  .contact-link { gap: 8px; }
+  .contact-service { flex-basis: 42px; }
+  .contact-link strong { font-size: 13.5px; }
   .hero h1 { font-size: 34px; letter-spacing: -.065em; }
   .lead { font-size: 15px; line-height: 1.85; }
   .hero-actions { gap: 8px; }
