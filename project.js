@@ -25,9 +25,16 @@
   if (descriptionMeta) descriptionMeta.content = project.desc;
 
   function projectLink(link) {
-    return '<a class="btn ' + (link.kind === 'primary' ? 'btn-primary' : 'btn-white') +
+    return '<a class="btn ' + (link.kind === 'primary' && !project.demo ? 'btn-primary' : 'btn-white') +
       '" href="' + esc(link.url) + '" target="_blank" rel="noopener noreferrer">' +
       esc(link.label) + ' <span aria-hidden="true">↗</span></a>';
+  }
+  function demoLink() {
+    return project.demo
+      ? '<a class="btn btn-primary" href="' + esc(project.demo.url) + '" target="_blank" rel="noopener noreferrer"'
+        + ' aria-label="' + esc(project.title) + ' 직접 체험하기">' + esc(project.demo.label || '체험하기')
+        + ' <span aria-hidden="true">↗</span></a>'
+      : '';
   }
 
   var gallery = Array.isArray(project.gallery) ? project.gallery : [];
@@ -42,7 +49,9 @@
         '<p class="eyebrow blue">' + esc(project.kicker) + '</p>' +
         '<h1 id="project-title">' + esc(project.title) + '</h1>' +
         '<p class="detail-lead">' + esc(project.desc) + '</p>' +
-        '<div class="detail-links">' + project.links.map(projectLink).join('') + '</div>' +
+        '<div class="detail-links">' + demoLink() + project.links.filter(function (link) {
+          return !project.demo || link.url !== project.demo.url;
+        }).map(projectLink).join('') + '</div>' +
       '</div>' +
       '<div class="detail-media">' + render.art(project, {
         eager: true,

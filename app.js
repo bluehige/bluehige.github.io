@@ -69,14 +69,22 @@
   }
 
   function card(project) {
-    return '<article class="project-card"><a class="card-link" href="./project.html?id=' + encodeURIComponent(project.id)
-      + '" aria-label="' + esc(project.title) + ' 상세 소개 보기">' + art(project)
+    // The project detail link and live demo must be separate interactive elements.
+    var href = './project.html?id=' + encodeURIComponent(project.id);
+    var demo = project.demo;
+    return '<article class="project-card">'
+      + '<a class="card-link" href="' + href + '" aria-label="' + esc(project.title) + ' 상세 소개 보기">'
+      + art(project)
       + '<div class="card-body"><div class="card-top"><span class="category-chip">' + esc(labels[project.category])
       + '</span><span class="release-status"><span class="status-chip ' + statusClass(project) + '">' + esc(project.status) + '</span>'
       + platformBadges(project) + '</span></div>'
-      + '<h3>' + esc(project.title) + '</h3><p class="card-desc">' + esc(project.cardDesc || project.desc) + '</p>'
-      + '<div class="card-footer"><span>' + esc(project.platform || labels[project.category])
-      + '</span><strong>자세히 보기 <span aria-hidden="true">↗</span></strong></div></div></a></article>';
+      + '<h3>' + esc(project.title) + '</h3><p class="card-desc">' + esc(project.cardDesc || project.desc) + '</p></div></a>'
+      + '<div class="card-actions"><span class="card-platform">' + esc(project.platform || labels[project.category]) + '</span>'
+      + '<div class="card-action-links">'
+      + (demo ? '<a class="card-demo" href="' + esc(demo.url) + '" target="_blank" rel="noopener noreferrer"'
+        + ' aria-label="' + esc(project.title) + ' 직접 체험하기">체험하기 <span aria-hidden="true">↗</span></a>' : '')
+      + '<a class="card-detail" href="' + href + '" aria-label="' + esc(project.title) + ' 자세히 보기">자세히 보기 <span aria-hidden="true">→</span></a>'
+      + '</div></div></article>';
   }
 
   function bindImageFallbacks(root) {
@@ -175,6 +183,13 @@
     document.getElementById('feature-category').textContent = labels[project.category];
     document.getElementById('feature-status').textContent = project.status;
     document.getElementById('feature-platforms').innerHTML = platformBadges(project);
+    var demoLink = document.getElementById('feature-demo');
+    demoLink.hidden = !project.demo;
+    if (project.demo) {
+      demoLink.href = project.demo.url;
+      demoLink.querySelector('.feature-demo-label').textContent = project.demo.label || '체험하기';
+      demoLink.setAttribute('aria-label', project.title + ' 바로 체험하기');
+    }
     document.getElementById('feature-link').href = href;
     var imageLink = document.getElementById('feature-image-link');
     imageLink.href = href;
