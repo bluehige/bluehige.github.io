@@ -36,8 +36,8 @@
       '<div class="detail-copy">' +
         '<div class="detail-status">' +
           '<span class="category-chip">' + esc(render.labels[project.category]) + '</span>' +
-          '<span class="status-chip' + (project.status === '개발 중' ? ' dev' : '') + '">' + esc(project.status) + '</span>' +
-          render.platformBadges(project) +
+          '<span class="release-status"><span class="status-chip' + (project.status === '개발 중' ? ' dev' : '') + '">' + esc(project.status) + '</span>' +
+          render.platformBadges(project) + '</span>' +
         '</div>' +
         '<p class="eyebrow blue">' + esc(project.kicker) + '</p>' +
         '<h1 id="project-title">' + esc(project.title) + '</h1>' +
