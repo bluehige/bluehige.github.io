@@ -1,14 +1,119 @@
-(function(){
-'use strict';var p=(window.BH_PROJECTS||[]).find(function(x){return x.id===new URLSearchParams(location.search).get('id')});var els=window.BH_RENDER||{};
-var root=document.getElementById('detail-content'),related=document.getElementById('related');
-if(!p){document.title='프로젝트를 찾을 수 없습니다 | 푸른 수염 스튜디오';root.innerHTML='<h1>프로젝트를 찾을 수 없습니다.</h1><p>주소를 확인하거나 <a href="./#work">전체 작품 목록</a>을 방문해 주세요.</p>';return}
-document.title=p.title+' | 푸른 수염 스튜디오';var meta=document.createElement('meta');meta.name='description';meta.content=p.desc;document.head.appendChild(meta);
-function e(s){return els.esc(s)}function art(p){return els.art(p)}function link(l){return '<a class="btn '+(l.kind==='primary'?'btn-primary':'btn-white')+'" href="'+e(l.url)+'" target="_blank" rel="noopener noreferrer">'+e(l.label)+' <span aria-hidden="true">↗</span></a>'}
-root.innerHTML='<section class="detail-top"><div class="detail-copy"><div class="detail-status"><span class="category-chip">'+e(els.labels[p.category])+'</span><span class="status-chip '+(p.status==='개발 중'?'dev':'')+'">'+e(p.status)+'</span></div><p class="eyebrow blue" style="margin-top:22px">'+e(p.kicker)+'</p><h1>'+e(p.title)+'</h1><p class="detail-lead">'+e(p.desc)+'</p><div class="detail-links">'+p.links.map(link).join('')+'</div></div><div class="detail-media">'+(p.cover?'<div class="card-art"><img src="'+e(p.cover)+'" alt="'+e(p.short)+' 대표 이미지"></div>':art(p))+'</div></section>'+
-'<section class="detail-content-grid"><div><span class="eyebrow blue">THE PROJECT</span><h2>프로젝트 소개</h2><p>'+e(p.detail)+'</p></div><div><span class="eyebrow blue">HIGHLIGHTS</span><h2>핵심 특징</h2><ul class="feature-list">'+p.features.map(function(f){return'<li>'+e(f)+'</li>'}).join('')+'</ul></div></section>'+
-(p.gallery&&p.gallery.length?'<section class="detail-gallery"><span class="eyebrow blue">SCREENSHOTS</span><h2>실제 게임 화면</h2><div class="gallery-grid">'+p.gallery.map(function(src,i){return'<button type="button" data-image="'+i+'" aria-label="스크린샷 '+(i+1)+' 크게 보기"><img src="'+e(src)+'" alt="'+e(p.short)+' 스크린샷 '+(i+1)+'" loading="lazy"></button>'}).join('')+'</div></section>':'');
-var siblings=(window.BH_PROJECTS||[]).filter(function(x){return x.id!==p.id&&x.category===p.category}).slice(0,3);
-if(siblings.length<3){siblings=siblings.concat((window.BH_PROJECTS||[]).filter(function(x){return x.id!==p.id&&!siblings.includes(x)}).slice(0,3-siblings.length))}
-related.innerHTML=siblings.map(els.card).join('');
-document.querySelectorAll('[data-image]').forEach(function(b){b.addEventListener('click',function(){var lb=document.createElement('div');lb.className='lightbox';lb.setAttribute('role','dialog');lb.setAttribute('aria-modal','true');lb.setAttribute('aria-label','확대된 스크린샷');lb.innerHTML='<button type="button" aria-label="확대 이미지 닫기">×</button><img src="'+e(p.gallery[Number(b.dataset.image)])+'" alt="'+e(p.title)+' 스크린샷 확대">';document.body.appendChild(lb);document.body.style.overflow='hidden';var close=function(){lb.remove();document.body.style.overflow='';document.removeEventListener('keydown',onKey);b.focus()};var onKey=function(ev){if(ev.key==='Escape')close()};document.addEventListener('keydown',onKey);lb.querySelector('button').addEventListener('click',close);lb.addEventListener('click',function(ev){if(ev.target===lb)close()});lb.querySelector('button').focus()})});
-})();
+(function () {
+  'use strict';
+
+  var projects = window.BH_PROJECTS || [];
+  var render = window.BH_RENDER;
+  var root = document.getElementById('detail-content');
+  var related = document.getElementById('related');
+  var relatedSection = document.getElementById('related-section');
+  var projectId = new URLSearchParams(window.location.search).get('id');
+  var project = projects.find(function (item) { return item.id === projectId; });
+
+  if (!root) return;
+  if (!project || !render) {
+    document.title = '프로젝트를 찾을 수 없습니다 | 푸른 수염 스튜디오';
+    root.innerHTML = '<section class="detail-copy"><h1>프로젝트를 찾을 수 없습니다.</h1>' +
+      '<p class="detail-lead">주소를 다시 확인하거나 전체 작품 목록에서 프로젝트를 선택해 주세요.</p>' +
+      '<a class="btn btn-primary" href="./#work">전체 작품 보기 <span aria-hidden="true">→</span></a></section>';
+    if (relatedSection) relatedSection.hidden = true;
+    return;
+  }
+
+  var esc = render.esc;
+  document.title = project.title + ' | 푸른 수염 스튜디오';
+  var descriptionMeta = document.querySelector('meta[name="description"]');
+  if (descriptionMeta) descriptionMeta.content = project.desc;
+
+  function projectLink(link) {
+    return '<a class="btn ' + (link.kind === 'primary' ? 'btn-primary' : 'btn-white') +
+      '" href="' + esc(link.url) + '" target="_blank" rel="noopener noreferrer">' +
+      esc(link.label) + ' <span aria-hidden="true">↗</span></a>';
+  }
+
+  var gallery = Array.isArray(project.gallery) ? project.gallery : [];
+  root.innerHTML =
+    '<section class="detail-top" aria-labelledby="project-title">' +
+      '<div class="detail-copy">' +
+        '<div class="detail-status">' +
+          '<span class="category-chip">' + esc(render.labels[project.category]) + '</span>' +
+          '<span class="status-chip' + (project.status === '개발 중' ? ' dev' : '') + '">' + esc(project.status) + '</span>' +
+        '</div>' +
+        '<p class="eyebrow blue">' + esc(project.kicker) + '</p>' +
+        '<h1 id="project-title">' + esc(project.title) + '</h1>' +
+        '<p class="detail-lead">' + esc(project.desc) + '</p>' +
+        '<div class="detail-links">' + project.links.map(projectLink).join('') + '</div>' +
+      '</div>' +
+      '<div class="detail-media">' + render.art(project, {
+        eager: true,
+        sizes: '(max-width: 700px) calc(100vw - 40px), (max-width: 1100px) 46vw, 560px'
+      }) + '</div>' +
+    '</section>' +
+    '<section class="detail-content-grid" aria-label="프로젝트 상세 정보">' +
+      '<div><span class="eyebrow blue">THE PROJECT</span><h2>프로젝트 소개</h2><p>' + esc(project.detail) + '</p></div>' +
+      '<div><span class="eyebrow blue">HIGHLIGHTS</span><h2>핵심 특징</h2><ul class="feature-list">' +
+        project.features.map(function (feature) { return '<li>' + esc(feature) + '</li>'; }).join('') +
+      '</ul></div>' +
+    '</section>' +
+    (gallery.length ?
+      '<section class="detail-gallery" aria-labelledby="gallery-title">' +
+        '<span class="eyebrow blue">SCREENSHOTS</span><h2 id="gallery-title">실제 게임 화면</h2>' +
+        '<p class="detail-lead">이미지를 선택하면 크게 볼 수 있습니다.</p>' +
+        '<div class="gallery-grid">' + gallery.map(function (src, index) {
+          return '<button type="button" data-image="' + index + '" aria-haspopup="dialog" aria-label="' +
+            esc(project.short) + ' 스크린샷 ' + (index + 1) + ' 크게 보기">' +
+            '<img src="' + esc(src) + '" alt="' + esc(project.short) + ' 실제 게임 화면 ' + (index + 1) +
+            '" loading="lazy" decoding="async" width="1920" height="1080"></button>';
+        }).join('') + '</div>' +
+      '</section>' : '');
+
+  var siblings = projects.filter(function (item) {
+    return item.id !== project.id && item.category === project.category;
+  }).slice(0, 3);
+  if (siblings.length < 3) {
+    siblings = siblings.concat(projects.filter(function (item) {
+      return item.id !== project.id && !siblings.some(function (sibling) { return sibling.id === item.id; });
+    }).slice(0, 3 - siblings.length));
+  }
+  if (related) related.innerHTML = siblings.map(function (item) { return render.card(item); }).join('');
+  if (relatedSection) relatedSection.hidden = !siblings.length;
+  if (typeof render.bindImageFallbacks === 'function') {
+    render.bindImageFallbacks(root);
+    if (related) render.bindImageFallbacks(related);
+  }
+
+  var dialog = document.getElementById('image-dialog');
+  var dialogImage = document.getElementById('image-dialog-image');
+  var dialogTitle = document.getElementById('image-dialog-title');
+  var closeButton = document.getElementById('image-dialog-close');
+  if (!dialog || !dialogImage || !closeButton || !gallery.length) return;
+
+  var previousFocus = null;
+  var previousOverflow = '';
+
+  root.querySelectorAll('[data-image]').forEach(function (button) {
+    button.addEventListener('click', function () {
+      var index = Number(button.dataset.image);
+      if (!gallery[index] || dialog.open) return;
+      previousFocus = button;
+      previousOverflow = document.body.style.overflow;
+      dialogImage.src = gallery[index];
+      dialogImage.alt = project.short + ' 실제 게임 화면 ' + (index + 1) + ' 확대';
+      dialogTitle.textContent = project.short + ' 스크린샷 ' + (index + 1) + ' / ' + gallery.length;
+      dialog.showModal();
+      document.body.style.overflow = 'hidden';
+      closeButton.focus();
+    });
+  });
+
+  closeButton.addEventListener('click', function () { dialog.close(); });
+  dialog.addEventListener('click', function (event) {
+    if (event.target === dialog) dialog.close();
+  });
+  // The native dialog handles Escape and keeps keyboard focus within the modal.
+  dialog.addEventListener('close', function () {
+    document.body.style.overflow = previousOverflow;
+    dialogImage.removeAttribute('src');
+    if (previousFocus && previousFocus.isConnected) previousFocus.focus();
+    previousFocus = null;
+  });
+}());

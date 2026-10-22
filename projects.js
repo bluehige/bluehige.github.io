@@ -13,3 +13,33 @@ window.BH_PROJECTS=[
 {id:"diversity",title:"Diversity Generation Engine",short:"다양성 생성 엔진",category:"lab",status:"소스 공개",kicker:"AI · IDEATION · RESEARCH",desc:"AI가 비슷한 답만 반복하지 않도록 서로 다른 관점과 해결 전략을 생성·검증하는 연구형 도구.",detail:"여러 관점에서 아이디어를 만들고 의미상 중복을 줄이며 제약과 품질을 검증한 뒤 후보를 선택하는 공개형 AI 아이디어 생성 엔진입니다.",features:["아이디어 해결 공간의 체계적 탐색","중복과 제약 검증","게임·영상·기획 등 분야별 확장"],art:"diversity",mark:"✳",links:[{label:"GitHub에서 보기",url:"https://github.com/bluehige/idea-diversity-engine",kind:"primary"}]},
 {id:"voice",title:"Korean Webnovel VoiceGuard",short:"한국어 문체 가드",category:"lab",status:"소스 공개",kicker:"WRITING · AI · LANGUAGE",desc:"AI와 한국어 웹소설을 집필할 때 작가 고유의 문체와 캐릭터 말투를 유지하기 위한 제작 스킬.",detail:"한국어 웹소설의 문장 패턴과 반복 표현을 점검하고 작가의 문체 기준을 유지하도록 설계된 작성·검수 도구입니다.",features:["작품별 문체 기준 설정","상투적 표현과 문장 패턴 점검","장면 단위 집필 및 퇴고 흐름"],art:"voice",mark:"Aa",links:[{label:"GitHub에서 보기",url:"https://github.com/bluehige/novel_Korean_skill",kind:"primary"}]}
 ];
+
+
+// Display copy and supplied artwork. Product details, status, IDs and links above
+// remain the source of truth; these illustrations are not product screenshots.
+(function () {
+  var display = {
+    mawang: { cardDesc: '마왕이 떠난 성을 지키는 몬스터들의 이야기. 몬스터를 키우고 방어 전선을 운영하는 판타지 게임.', platform: 'PC · 2D 판타지 게임', coverAlt: '보랏빛 마왕성과 흰 머리 캐릭터를 그린 마왕성 소개 일러스트' },
+    oneman: { cardDesc: '108자루의 검을 다루는 해결사 이연. 대화와 선택으로 풀어가는 무협 비주얼 노블.', platform: '무협 · 비주얼 노블', coverAlt: '검을 든 무협 인물과 산성을 그린 일인합격진 소개 일러스트' },
+    type: { cardDesc: '내 MBTI와 사용 목적에 맞는 AI 페르소나를 찾고, 대화용 프롬프트를 만들어보세요.', platform: '웹에서 바로 체험', coverAlt: '페르소나 카드와 대화 화면, 마스코트가 있는 타입메이트 소개 일러스트' },
+    saju: { cardDesc: '기본 사주부터 오늘의 운세까지. MBTI 성향에 맞는 행동 조언을 함께 읽는 앱.', platform: '모바일 앱 프로젝트', coverAlt: '달과 동양풍 인물, 스마트폰을 그린 사주MBTI 소개 일러스트' },
+    'pano-maker': { cardDesc: '이미지를 만들고 공간을 연결하는 360° 파노라마 제작 도구. 새로운 장면을 실험합니다.', platform: '360° · 이미지 제작', coverAlt: '마스코트가 구형 세계와 파노라마 이미지를 만드는 장면을 그린 일러스트' },
+    'pano-view': { cardDesc: '파노라마를 돌려보고 장면을 바꿔보세요. 웹에서 공간을 탐색하는 360° 이미지 뷰어.', platform: '360° · 웹 뷰어', coverAlt: '판타지 풍경과 파노라마 탐색 화면을 그린 360도 갤러리 소개 일러스트' },
+    export: { cardDesc: 'Blender의 3D 자산을 Godot, Unity, Unreal에 맞춰 내보내는 애드온.', platform: 'Blender · 게임 엔진', coverAlt: '3D 모형을 여러 제작 도구로 연결하는 Engine Export Bridge 소개 일러스트' },
+    cozy: { cardDesc: '도로, 건물, 소품을 차례로 배치해 아기자기한 도시와 마을을 만드는 생성 도구.', platform: 'Blender · 도시 생성', coverAlt: '등각 시점의 밝고 아기자기한 마을을 그린 Cozy City 소개 일러스트' },
+    uxlib: { cardDesc: '게임, 웹, 모바일, VR까지. 제작에 필요한 UI/UX 참고 자료를 한곳에서 살펴보세요.', platform: '웹에서 바로 탐색', coverAlt: '화면 구성 요소와 마스코트가 있는 UI/UX 디자인 라이브러리 소개 일러스트' },
+    planner: { cardDesc: '기획부터 구현, 검수, 출시 판단까지. AI와 함께 게임을 만들기 위한 작업 기준.', platform: 'AI · 게임 제작' },
+    gameux: { cardDesc: '플레이어의 선택과 사용성을 기준으로 게임 화면을 설계하고 점검하는 AI 스킬.', platform: 'AI · 게임 UI/UX' },
+    diversity: { cardDesc: '비슷한 답에서 벗어나 서로 다른 관점의 아이디어를 만들고 비교하는 연구 도구.', platform: 'AI · 아이디어 발상', coverAlt: '여러 방향으로 아이디어가 확장되는 다양성 생성 엔진 소개 일러스트' },
+    voice: { cardDesc: 'AI와 웹소설을 쓸 때 작가 고유의 문체와 캐릭터의 말투를 유지하는 집필 스킬.', platform: 'AI · 한국어 집필' }
+  };
+  window.BH_PROJECTS.forEach(function (project) {
+    Object.assign(project, display[project.id]);
+    if (project.coverAlt) {
+      project.cover = './assets/images/' + project.id + '-960.webp';
+      project.coverSmall = './assets/images/' + project.id + '-480.webp';
+      project.hero = project.id === 'mawang' ? './assets/images/mawang-1440.webp' : project.cover;
+      project.imageKind = '소개 일러스트';
+    }
+  });
+})();
