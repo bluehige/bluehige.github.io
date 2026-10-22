@@ -72,8 +72,8 @@
     return '<article class="project-card"><a class="card-link" href="./project.html?id=' + encodeURIComponent(project.id)
       + '" aria-label="' + esc(project.title) + ' 상세 소개 보기">' + art(project)
       + '<div class="card-body"><div class="card-top"><span class="category-chip">' + esc(labels[project.category])
-      + '</span><span class="status-chip ' + statusClass(project) + '">' + esc(project.status) + '</span></div>'
-      + platformBadges(project)
+      + '</span><span class="release-status"><span class="status-chip ' + statusClass(project) + '">' + esc(project.status) + '</span>'
+      + platformBadges(project) + '</span></div>'
       + '<h3>' + esc(project.title) + '</h3><p class="card-desc">' + esc(project.cardDesc || project.desc) + '</p>'
       + '<div class="card-footer"><span>' + esc(project.platform || labels[project.category])
       + '</span><strong>자세히 보기 <span aria-hidden="true">↗</span></strong></div></div></a></article>';
