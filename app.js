@@ -44,11 +44,36 @@
     return project.status === '개발 중' ? 'dev' : project.status === '소스 공개' ? 'source' : '';
   }
 
+
+  // Platform badges are informational: cards remain a single accessible link.
+  function platformSymbol(key) {
+    if (key === 'steam') {
+      return '<span class="platform-symbol steam" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="17" cy="7" r="4.5"/><circle cx="17" cy="7" r="1.5" fill="currentColor" stroke="none"/><path d="m3.5 12 6.3 3.2 3.5-3.4"/><circle cx="8.5" cy="17.2" r="2.7"/></svg></span>';
+    }
+    if (key === 'android') {
+      return '<span class="platform-symbol android" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 12a6 6 0 0 1 12 0H6Z"/><path d="m8 5-1.4-2M16 5l1.4-2M6 13v4.6a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V13"/><path d="M9.5 8.7h.01M14.5 8.7h.01" stroke-width="2.5"/></svg></span>';
+    }
+    return '<span class="platform-symbol stove" aria-hidden="true">S</span>';
+  }
+
+  function platformBadges(project) {
+    if (!Array.isArray(project.platformStatuses) || !project.platformStatuses.length) return '';
+    return '<span class="platform-badges" aria-label="플랫폼별 출시 상태">' +
+      project.platformStatuses.map(function (platform) {
+        var released = platform.state === 'released';
+        return '<span class="platform-badge ' + (released ? 'released' : 'developing') + '" aria-label="' +
+          esc(platform.name + (released ? ' 출시 완료' : ' 개발 중')) + '">' +
+          platformSymbol(platform.key) + '<span class="platform-name">' + esc(platform.name) + '</span>' +
+          '<span class="platform-state" aria-hidden="true">' + (released ? '✓ 출시' : '개발 중') + '</span></span>';
+      }).join('') + '</span>';
+  }
+
   function card(project) {
     return '<article class="project-card"><a class="card-link" href="./project.html?id=' + encodeURIComponent(project.id)
       + '" aria-label="' + esc(project.title) + ' 상세 소개 보기">' + art(project)
       + '<div class="card-body"><div class="card-top"><span class="category-chip">' + esc(labels[project.category])
       + '</span><span class="status-chip ' + statusClass(project) + '">' + esc(project.status) + '</span></div>'
+      + platformBadges(project)
       + '<h3>' + esc(project.title) + '</h3><p class="card-desc">' + esc(project.cardDesc || project.desc) + '</p>'
       + '<div class="card-footer"><span>' + esc(project.platform || labels[project.category])
       + '</span><strong>자세히 보기 <span aria-hidden="true">↗</span></strong></div></div></a></article>';
@@ -68,7 +93,7 @@
     });
   }
 
-  window.BH_RENDER = { art: art, card: card, esc: esc, labels: labels, bindImageFallbacks: bindImageFallbacks };
+  window.BH_RENDER = { art: art, card: card, esc: esc, labels: labels, platformBadges: platformBadges, bindImageFallbacks: bindImageFallbacks };
   var grid = document.getElementById('projects-grid');
   if (!grid) return;
 
@@ -99,7 +124,7 @@
   function render() {
     var query = search.trim().toLocaleLowerCase();
     var list = projects.filter(function (project) {
-      var text = [project.title, project.short, project.desc, project.kicker, project.platform, labels[project.category]].join(' ').toLocaleLowerCase();
+      var text = [project.title, project.short, project.desc, project.kicker, project.platform, (project.platformStatuses || []).map(function (status) { return status.name; }).join(' '), labels[project.category]].join(' ').toLocaleLowerCase();
       return (category === 'all' || category === project.category) && (!query || text.includes(query));
     });
     filters.forEach(function (button) {
@@ -149,6 +174,7 @@
     document.getElementById('feature-desc').textContent = project.cardDesc || project.desc;
     document.getElementById('feature-category').textContent = labels[project.category];
     document.getElementById('feature-status').textContent = project.status;
+    document.getElementById('feature-platforms').innerHTML = platformBadges(project);
     document.getElementById('feature-link').href = href;
     var imageLink = document.getElementById('feature-image-link');
     imageLink.href = href;
