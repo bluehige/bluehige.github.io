@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 610 565" role="img" aria-labelledby="title"><title id="title">파란 수염의 귀여운 스튜디오 마스코트</title>
+<defs><linearGradient id="blue" x1="0" x2=".9" y1="0" y2="1"><stop stop-color="#67baff"/><stop offset=".5" stop-color="#287cf4"/><stop offset="1" stop-color="#1058c8"/></linearGradient><linearGradient id="hat" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#60b7fa"/><stop offset="1" stop-color="#0957d5"/></linearGradient><linearGradient id="white" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffffff"/><stop offset="1" stop-color="#d6e7ff"/></linearGradient><filter id="shadow" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#3385d0" flood-opacity=".2"/></filter></defs>
+<g opacity=".66"><path d="M92 365C64 342 77 302 112 308C111 275 157 263 174 288C194 273 221 295 210 318C248 324 251 364 212 371Z" fill="#fff"/><path d="M396 346c-27-26-7-61 21-57 6-25 43-34 56-10 30-8 52 18 43 37 28 14 26 45-10 52h-86Z" fill="#fff"/><circle cx="96" cy="200" r="8" fill="#4eacff"/><circle cx="508" cy="195" r="12" fill="#b1dcff"/><path d="M465 119l5 15 15 5-15 5-5 15-5-15-15-5 15-5z" fill="#4e9df8"/><path d="M148 127l4 12 12 4-12 4-4 12-4-12-12-4 12-4z" fill="#8bd3ff"/></g>
+<g filter="url(#shadow)"><path d="M181 435C166 397 190 376 234 373H381C423 374 442 406 425 455L400 486H207Z" fill="url(#blue)"/>
+<ellipse cx="309" cy="489" rx="167" ry="28" fill="#b0d5ff" opacity=".4"/>
+<path d="M182 245C182 166 247 117 313 121C397 118 445 177 438 258L433 361C435 413 396 459 313 462C233 465 181 419 182 359Z" fill="url(#white)" stroke="#d8e7fb" stroke-width="3"/>
+<path d="M181 247C191 174 227 137 303 133C372 129 427 166 438 240C400 218 226 217 181 247Z" fill="url(#hat)"/>
+<path d="M175 240C229 221 388 216 450 248C434 270 397 273 303 266C214 264 188 260 175 240Z" fill="#1867e6"/>
+<path d="M275 173Q293 158 311 174" fill="none" stroke="#8cd2ff" stroke-width="9" stroke-linecap="round"/>
+<path d="M313 158c-8-31 7-38 21-41" stroke="#398df8" stroke-width="13" fill="none" stroke-linecap="round"/>
+<ellipse cx="264" cy="307" rx="9" ry="12" fill="#17375e"/><ellipse cx="356" cy="307" rx="9" ry="12" fill="#17375e"/><circle cx="267" cy="301" r="3" fill="#fff"/><circle cx="359" cy="301" r="3" fill="#fff"/><ellipse cx="224" cy="331" rx="23" ry="12" fill="#ffd8df" opacity=".65"/><ellipse cx="398" cy="331" rx="23" ry="12" fill="#ffd8df" opacity=".65"/>
+<ellipse cx="310" cy="340" rx="10" ry="7" fill="#5a8fca"/>
+<path d="M309 354C281 327 235 321 216 345C202 361 207 391 224 401C246 415 279 402 311 375C340 402 379 415 402 401C421 389 423 360 407 345C387 321 340 326 313 354Z" fill="url(#blue)" stroke="#1262d6" stroke-width="3"/>
+<path d="M275 401C281 440 295 456 311 460C326 455 342 439 347 401C331 411 291 412 275 401Z" fill="#2779e8"/>
+<path d="M299 408Q311 417 322 408" stroke="#0c4bad" stroke-width="5" fill="none" stroke-linecap="round"/>
+<path d="M216 419c-23 8-35 30-17 44 14 11 34 0 44-16l10-25Z" fill="url(#white)"/><path d="M408 419c23 8 35 30 17 44-14 11-34 0-44-16l-10-25Z" fill="url(#white)"/>
+<path d="M253 430Q261 413 281 421L340 421Q361 413 370 430L379 465Q377 479 360 480H262Q245 480 243 465Z" fill="#243a5d"/>
+<circle cx="284" cy="447" r="12" fill="#3a5981"/><path d="M284 438v18M275 447h18" stroke="#d8eaff" stroke-width="5" stroke-linecap="round"/><circle cx="338" cy="443" r="5" fill="#87d5ff"/><circle cx="350" cy="456" r="5" fill="#4688ff"/></g>
+<g opacity=".93"><rect x="111" y="275" width="55" height="55" rx="15" fill="#73b9ff" transform="rotate(-12 111 275)"/><path d="M124 304l9-10 8 9 8-12" stroke="#fff" stroke-width="5" stroke-linecap="round" fill="none"/><rect x="457" y="375" width="60" height="60" rx="18" fill="#4c8ff2" transform="rotate(10 457 375)"/><path d="M474 397h25v16h-25z" fill="none" stroke="#fff" stroke-width="4" stroke-linejoin="round"/></g></svg>
