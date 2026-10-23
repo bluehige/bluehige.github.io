@@ -172,6 +172,29 @@ a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visibl
 .native-lines i { height: 4px; background: #d6c6b2; border-radius: 2px; width: 100%; }
 .native-lines i:nth-child(2) { width: 80%; background: #a99170; }
 .native-lines i:nth-child(3) { width: 63%; }
+
+/* Native cover designs for recently added projects. Illustrations, not product screenshots. */
+.art-zigso { background: radial-gradient(circle at 84% 15%, #f7d9f6 0%, transparent 44%), linear-gradient(135deg, #f8f0fe 0%, #eee7ff 62%, #e4dcfc 100%); }
+.art-zigso .zigso-native { width: 82%; min-height: 74%; justify-content: center; gap: 6px; }
+.art-zigso .zigso-native > small { color: #72519d; font-size: 10px; letter-spacing: .13em; position: relative; z-index: 2; }
+.art-zigso .zigso-native > strong { font-size: clamp(35px, 3.4vw, 46px); color: #50377b; position: relative; z-index: 2; letter-spacing: -.06em; }
+.art-zigso .zigso-native > span { font-size: 13px; font-weight: 700; color: #71588e; position: relative; z-index: 2; }
+.puzzle-tiles { position: absolute; right: -3%; top: 9%; width: 43%; aspect-ratio: 1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 5px; transform: rotate(-9deg); filter: drop-shadow(0 11px 11px #4b32722a); }
+.puzzle-tiles i { display: block; min-width: 0; min-height: 0; border: 2px solid #ffffffaa; border-radius: 9px; background: linear-gradient(145deg, #e6abca, #bc9ae3); }
+.puzzle-tiles i:nth-child(2) { background: linear-gradient(145deg, #b08dca, #8068b6); transform: translateY(5px); }
+.puzzle-tiles i:nth-child(3) { background: linear-gradient(145deg, #eac5a5, #d8a1bf); }
+.puzzle-tiles i:nth-child(4) { background: linear-gradient(145deg, #baa9e9, #897ac9); transform: translate(12px, 8px) rotate(11deg); box-shadow: 0 2px 12px #54347b2b; }
+.art-upscaler { background: radial-gradient(circle at 89% 3%, #c3f2f0, transparent 50%), linear-gradient(125deg, #ecf7fc, #dbeff0); }
+.art-upscaler .upscale-native { width: 83%; min-height: 76%; justify-content: center; gap: 6px; }
+.art-upscaler .upscale-native > small { color: #387987; font-size: 10px; letter-spacing: .1em; position: relative; z-index: 2; }
+.art-upscaler .upscale-native > strong { max-width: 65%; color: #175568; font-size: clamp(24px, 2.45vw, 34px); position: relative; z-index: 2; }
+.art-upscaler .upscale-native > span { color: #387b84; font-size: 11px; position: relative; z-index: 2; }
+.upscale-preview { position: absolute; right: -5%; top: 13%; width: 38%; height: 78%; display: flex; overflow: hidden; border: 4px solid #fff; border-radius: 12px; transform: rotate(7deg); box-shadow: 0 11px 21px #2d708b23; }
+.upscale-preview i { display: block; width: 50%; height: 100%; }
+.upscale-preview i:first-child { background: repeating-conic-gradient(#6388a6 0% 25%, #8db4b2 0% 50%) 50% / 21px 21px; }
+.upscale-preview i:nth-child(2) { background: radial-gradient(circle at 65% 26%, #ffdfa2 0 12%, transparent 13%), linear-gradient(150deg, #78bdd5 10%, #c0edf0 45%, #387d9d 46%, #569ca1 65%, #225c76 100%); }
+.upscale-preview b { position: absolute; right: 6px; bottom: 7px; padding: 4px 6px; background: #ffffffed; border-radius: 4px; color: #175568; font-size: 11px; line-height: 1; }
+
 .art-fallback { padding: 18px; font-size: 22px; font-weight: 700; color: #315c93; text-align: center; }
 .empty { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); text-align: center; padding: 45px 24px; }
 .empty-symbol { color: #557da8; font-size: 42px; }
@@ -267,6 +290,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visibl
 .gallery-grid figcaption, .gallery-caption { color: #526780; font-size: 13px; padding: 8px 12px; }
 .next-section { margin-top: 70px; padding-top: 40px; border-top: 1px solid var(--border); }
 .next-section h2 { margin-bottom: 26px; font-size: 29px; }
+.detail-availability { font-size: 13px; line-height: 1.6; color: #63748a; margin: 12px 0 0; }
 .detail-error { padding-block: 55px; }
 .detail-error h1 { font-size: 30px; }
 .lightbox { border: 0; padding: 18px; border-radius: 14px; background: #10213b; color: #fff; width: min(1200px, 95vw); max-width: 95vw; max-height: 94dvh; }

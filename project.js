@@ -52,6 +52,7 @@
         '<div class="detail-links">' + demoLink() + project.links.filter(function (link) {
           return !project.demo || link.url !== project.demo.url;
         }).map(projectLink).join('') + '</div>' +
+        (project.availabilityNote ? '<p class="detail-availability">' + esc(project.availabilityNote) + '</p>' : '') +
       '</div>' +
       '<div class="detail-media">' + render.art(project, {
         eager: true,

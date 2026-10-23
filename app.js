@@ -12,6 +12,12 @@
   }
 
   function nativeArt(project) {
+    if (project.id === 'zigso') {
+      return '<div class="native-art zigso-native"><small>PIECE BY PIECE</small><strong>ZIGSO</strong><span>한 조각의 여유</span><div class="puzzle-tiles" aria-hidden="true"><i></i><i></i><i></i><i></i></div></div>';
+    }
+    if (project.id === 'upscaler') {
+      return '<div class="native-art upscale-native"><small>BEFORE → AFTER</small><strong>Image<br>Upscaler</strong><span>Real-ESRGAN · 4×</span><div class="upscale-preview" aria-hidden="true"><i></i><i></i><b>4×</b></div></div>';
+    }
     if (project.id === 'planner') {
       return '<div class="native-art"><small>MAKE YOUR NEXT GAME</small><strong>GamePlanner</strong><div class="native-flow" aria-hidden="true"><i>기획</i><b>→</b><i>제작</i><b>→</b><i>검증</i></div></div>';
     }
