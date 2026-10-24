@@ -87,6 +87,7 @@
       + '<h3>' + esc(project.title) + '</h3><p class="card-desc">' + esc(project.cardDesc || project.desc) + '</p></div></a>'
       + '<div class="card-actions"><span class="card-platform">' + esc(project.platform || labels[project.category]) + '</span>'
       + '<div class="card-action-links">'
+      + (project.id === 'mawang' ? '<a class="card-detail" href="./mawangcastle/privacy/">개인정보처리방침</a>' : '')
       + (demo ? '<a class="card-demo" href="' + esc(demo.url) + '" target="_blank" rel="noopener noreferrer"'
         + ' aria-label="' + esc(project.title) + ' 직접 체험하기">체험하기 <span aria-hidden="true">↗</span></a>' : '')
       + '<a class="card-detail" href="' + href + '" aria-label="' + esc(project.title) + ' 자세히 보기">자세히 보기 <span aria-hidden="true">→</span></a>'
