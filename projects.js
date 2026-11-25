@@ -29,8 +29,8 @@ window.BH_PROJECTS=[
     blindroom: { cardDesc: '360° 시야로 사각을 찍고 거짓 수칙의 모순을 찾아내는 오컬트 추리 비주얼 노블.', platform: '웹 체험판 · 360° 추리', coverAlt: '어두운 복도의 360도 카메라와 유리문 너머 여성을 그린 사각의 방 키 비주얼' },
     cropped: { cardDesc: '한 장면 속 사람들을 360°로 관찰하며 무슨 일이 있었는지 맞혀 가는 비주얼 노블.', platform: '웹 체험판 · 360° 관찰', coverAlt: '카페에서 직원이 손님에게 케이크를 던지는 잘라낸 사람들 EP01 장면' },
     spirit: { cardDesc: '15종 정령을 모아 진화시키고 마왕에게 도전하는 브라우저 액션 파일럿.', platform: 'Godot · 웹 파일럿', coverAlt: '초보 정령사와 불·물·풀 정령들이 숲에 모인 마왕 토벌전 타이틀 화면' },
-    zigso: { cardDesc: '10개 장면을 완성하는 모바일 직소 퍼즐. 난이도를 고르고 브라우저에서 바로 플레이하세요.', platform: '모바일 웹 · 직소 퍼즐' },
-    upscaler: { cardDesc: '이미지와 동영상을 Real-ESRGAN으로 업스케일하는 Windows 로컬 제작 도구.', platform: 'Windows · 로컬 제작 도구' },
+    zigso: { cardDesc: '10개 장면을 완성하는 모바일 직소 퍼즐. 난이도를 고르고 브라우저에서 바로 플레이하세요.', platform: '모바일 웹 · 직소 퍼즐', coverAlt: '마스코트가 스마트폰 화면 속 바닷가 마을 직소 퍼즐에 마지막 조각을 맞추는 ZIGSO 소개 일러스트' },
+    upscaler: { cardDesc: '이미지와 동영상을 Real-ESRGAN으로 업스케일하는 Windows 로컬 제작 도구.', platform: 'Windows · 로컬 제작 도구', coverAlt: '흐릿한 풍경과 선명해진 풍경을 비교하는 화면을 마스코트가 돋보기로 살펴보는 업스케일러 소개 일러스트' },
     mawang: { cardDesc: '초보마왕과 그의 부하 몬스터들의 이야기. 몬스터를 키우고 방어 전선을 운영하는 판타지 게임.', platform: 'PC 출시 · Android 개발 중', coverAlt: '보랏빛 마왕성과 흰 머리 캐릭터를 그린 마왕성 소개 일러스트' },
     oneman: { cardDesc: '108자루의 검을 다루는 해결사 이연. 대화와 선택으로 풀어가는 무협 비주얼 노블.', platform: '무협 · 비주얼 노블', coverAlt: '검을 든 무협 인물과 산성을 그린 일인합격진 소개 일러스트' },
     type: { cardDesc: '내 MBTI와 사용 목적에 맞는 AI 페르소나를 찾고, 대화용 프롬프트를 만들어보세요.', platform: '웹에서 바로 체험', coverAlt: '페르소나 카드와 대화 화면, 마스코트가 있는 타입메이트 소개 일러스트' },
@@ -40,10 +40,10 @@ window.BH_PROJECTS=[
     export: { cardDesc: 'Blender의 3D 자산을 Godot, Unity, Unreal에 맞춰 내보내는 애드온.', platform: 'Blender · 게임 엔진', coverAlt: '3D 모형을 여러 제작 도구로 연결하는 Engine Export Bridge 소개 일러스트' },
     cozy: { cardDesc: '도로, 건물, 소품을 차례로 배치해 아기자기한 도시와 마을을 만드는 생성 도구.', platform: 'Blender · 도시 생성', coverAlt: '등각 시점의 밝고 아기자기한 마을을 그린 Cozy City 소개 일러스트' },
     uxlib: { cardDesc: '게임, 웹, 모바일, VR까지. 제작에 필요한 UI/UX 참고 자료를 한곳에서 살펴보세요.', platform: '웹에서 바로 탐색', coverAlt: '화면 구성 요소와 마스코트가 있는 UI/UX 디자인 라이브러리 소개 일러스트' },
-    planner: { cardDesc: '기획부터 구현, 검수, 출시 판단까지. AI와 함께 게임을 만들기 위한 작업 기준.', platform: 'AI · 게임 제작' },
-    gameux: { cardDesc: '플레이어의 선택과 사용성을 기준으로 게임 화면을 설계하고 점검하는 AI 스킬.', platform: 'AI · 게임 UI/UX' },
+    planner: { cardDesc: '기획부터 구현, 검수, 출시 판단까지. AI와 함께 게임을 만들기 위한 작업 기준.', platform: 'AI · 게임 제작', coverAlt: '기획·구현·검수·플레이테스트·출시 카드가 이어진 제작 흐름을 마스코트가 가리키는 GamePlanner 소개 일러스트' },
+    gameux: { cardDesc: '플레이어의 선택과 사용성을 기준으로 게임 화면을 설계하고 점검하는 AI 스킬.', platform: 'AI · 게임 UI/UX', coverAlt: '주석이 달린 게임 HUD 화면과 접근성 점검 아이콘을 마스코트가 검토하는 Game UI/UX 소개 일러스트' },
     diversity: { cardDesc: '비슷한 답에서 벗어나 서로 다른 관점의 아이디어를 만들고 비교하는 연구 도구.', platform: 'AI · 아이디어 발상', coverAlt: '여러 방향으로 아이디어가 확장되는 다양성 생성 엔진 소개 일러스트' },
-    voice: { cardDesc: 'AI와 웹소설을 쓸 때 작가 고유의 문체와 캐릭터의 말투를 유지하는 집필 스킬.', platform: 'AI · 한국어 집필' }
+    voice: { cardDesc: 'AI와 웹소설을 쓸 때 작가 고유의 문체와 캐릭터의 말투를 유지하는 집필 스킬.', platform: 'AI · 한국어 집필', coverAlt: '마스코트가 만년필로 원고를 쓰고 반복 문장이 강조된 페이지와 말풍선이 떠 있는 VoiceGuard 소개 일러스트' }
   };
   window.BH_PROJECTS.forEach(function (project) {
     Object.assign(project, display[project.id]);
